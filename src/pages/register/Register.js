@@ -98,9 +98,10 @@ export default class Register extends React.Component {
           
         </div>
         <div className="register-inn">
-              Already have an account? <Link className="link" to="/login/">Sign In</Link>
+              Already have an account? <Link className="link" to="/login/">&nbsp; Sign In</Link>
         </div>
       </div>
     )
   }
 }
+

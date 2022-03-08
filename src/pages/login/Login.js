@@ -64,7 +64,7 @@ export default class Login extends React.Component {
           </form>
         </div>
         <div className="login-inn">
-              Do not have an account?<Link className="link" to="/register/">Sign Up</Link>
+              Do not have an account?<Link className="link" to="/register/">&nbsp;Sign Up</Link>
           </div>
       </div>
     )

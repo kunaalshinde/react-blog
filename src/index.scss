@@ -195,14 +195,14 @@ h1 {
 
 }
 
-.posts {
+.blogs {
   // flex: 9;
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
 }
 
-.post {
+.blog {
   width: 417px;
   margin: 0px 25px 40px 25px;
   // background-color: #deeaee;
@@ -211,14 +211,14 @@ h1 {
   // border: 1px solid black;
 
 
-  .post-image {
+  .blog-image {
     width: 100%;
     height: 280px;
     object-fit: cover;
     border-radius: 8px;
   }
 
-  .post-info {
+  .blog-info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -233,14 +233,14 @@ h1 {
       cursor: pointer;
     }
 
-    .post-title {
+    .blog-title {
       font-family: 'Lora', serif;
       // font-family: 'varela', sans-serif;
       font-weight: 700;
       cursor: pointer;
     }
     
-    .post-date {
+    .blog-date {
       font-family: 'Cinzel Decorative', cursive;
       font-size: 13px;
       font-weight: bold;
@@ -251,8 +251,8 @@ h1 {
     
   }
   
-  .post-desc {
-    font-family: 'Varela Round', sans-serif;
+  .blog-desc {
+    font-family: 'Lucida sans', sans-serif;
     font-size: 14px;
     color: #444;
     margin-top: 15px;
@@ -669,6 +669,7 @@ h1 {
     height: 30px;
     width: 350px;
     margin-top: 20px;
+    margin-bottom: 20px;
     // padding: 10px;
     font-size: 18px;
     color: black;

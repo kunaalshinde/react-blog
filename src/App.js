@@ -10,11 +10,6 @@ import Write from "./pages/write/Write";
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 
 export default class App extends React.Component {
-  
-    user = {
-        isLogged: false,
-
-    }
 
     render() {
       return (
@@ -27,15 +22,18 @@ export default class App extends React.Component {
             />
               <Route 
                 path="register/" 
-                element={this.user.isLogged ? <Home /> : <Register />}
+                // element={this.user.isLogged ? <Home /> : <Register />}
+                element={<Register />}
               />
               <Route 
                 path="login/" 
-                element={this.user.isLogged ? <Home /> : <Login />}
+                // element={this.user.isLogged ? <Home /> : <Login />}
+                element={<Login />}
               />
               <Route 
                 path="settings/" 
-                element={this.user.isLogged ? <Settings /> : <Login />}
+                // element={this.user.isLogged ? <Settings /> : <Login />}
+                element={<Settings />}
               />
               <Route 
                 path="post/:postId" 
@@ -43,7 +41,8 @@ export default class App extends React.Component {
               />
               <Route
                 path="write/" 
-                element={this.user.isLogged ? <Write /> : <Login />}
+                // element={this.user.isLogged ? <Write /> : <Login />}
+                element={<Write />}
               />
             </Routes>
         </BrowserRouter>
