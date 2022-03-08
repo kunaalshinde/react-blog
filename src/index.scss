@@ -89,7 +89,7 @@ h1 {
 }
 
 .middle {
-  margin-top: 60px;
+  // margin-top: 60px;
 
   .middleTitle {
     display: flex;
@@ -115,14 +115,14 @@ h1 {
   .middle-image {
     width: 100%;
     height: 450px;
-    margin-top: 80px;
+    // margin-top: 80px;
     object-fit: cover;
   }
 
 }
 
 .home {
-  display: flex;
+  // display: flex;
 }
 
 .sidebar {
@@ -196,14 +196,14 @@ h1 {
 }
 
 .posts {
-  flex: 9;
+  // flex: 9;
   display: flex;
   flex-wrap: wrap;
   margin: 30px;
 }
 
 .post {
-  width: 420px;
+  width: 417px;
   margin: 0px 25px 40px 25px;
   // background-color: #deeaee;
   // padding: 10px;

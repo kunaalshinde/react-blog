@@ -10,7 +10,7 @@ export default function Home() {
         <Middle />
     <div className='home'>
         <Posts />
-        <Sidebar />
+        {/* <Sidebar /> */}
     </div>
     </>
   )

@@ -17,7 +17,7 @@ export default function Header() {
         <li className="headerListItem"><Link className='link' to="/about/">ABOUT</Link> </li>
         <li className="headerListItem">CONTACT</li>
         <li className="headerListItem"><Link className='link' to="/write/">CREATE</Link></li>
-        <li className="headerListItem">LOGOUT</li>
+        {/* <li className="headerListItem">LOGOUT</li> show only when user is logged in */}
         </ul>
       </div>
       <div className="right">
