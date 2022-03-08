@@ -24,8 +24,8 @@ export default function Header() {
         {/* <img src={profile} className="header-Profile" /> */}
         {/* if user is logged in show profile picture else show options to login and register */}
         <ul className="headerList">
-        <li className="headerListItem"><Link className='link' to="login/" >LOGIN</Link></li>
-        <li className="headerListItem"><Link className='link' to="register/">REGISTER</Link></li>
+        <li className="headerListItem"><Link className='link' to="/login/" >LOGIN</Link></li>
+        <li className="headerListItem"><Link className='link' to="/register/">REGISTER</Link></li>
         </ul>
 
         <i className="header-Search fa-solid fa-magnifying-glass"></i>

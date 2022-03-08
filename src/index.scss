@@ -121,9 +121,9 @@ h1 {
 
 }
 
-.home {
+// .home {
   // display: flex;
-}
+// }
 
 .sidebar {
   // height: 800px;
@@ -496,12 +496,46 @@ h1 {
 
 .login {
   height: calc(100vh - 50px);
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 1px solid gray;
   font-family: 'Lora', serif;
   align-items: center;
+
+  .inner-login {
+    width: 470px;
+    height: 400px;
+    margin: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    align-items: center;
+  }
+
+
+  .login-inn {
+    margin-top: 20px;
+    height: 80px;
+    width: 470px;
+    border: 1px solid lightgray;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    align-items: center;
+
+    .link {
+      color: violet;
+    }
+  }
+
+
 
   .login-title {
     font-size: 50px;
@@ -520,20 +554,22 @@ h1 {
 
   .login-input {
     padding: 10px;
-    background-color: white;
-    border: none;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    margin: 10px;
     border-bottom: 1px solid gray;
   }
 
   .login-input:focus {
-    background-color: rgb(250, 190, 187);
-    border: none;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    outline: none;
     border-bottom: 1px solid black;
   }
 
 
   .login-button {
-    background-color: rgb(241, 94, 26);
+    background-color: violet;
     height: 30px;
     width: 350px;
     margin-top: 20px;
@@ -558,12 +594,44 @@ h1 {
 
 .register {
   height: calc(100vh - 50px);
+  background-color: whitesmoke;
   display: flex;
   flex-direction: column;
   justify-content: center;
   border: 1px solid gray;
   font-family: 'Lora', serif;
   align-items: center;
+
+  .inner-register {
+    width: 470px;
+    height: 400px;
+    margin: 0;
+    background-color: white;
+    border: 1px solid lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    align-items: center;
+  }
+
+
+  .register-inn {
+    margin-top: 20px;
+    height: 80px;
+    width: 470px;
+    border: 1px solid lightgray;
+    background-color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    font-family: 'Lora', serif;
+    align-items: center;
+
+    .link {
+      color: violet;
+    }
+  }
 
   .register-title {
     font-size: 50px;
@@ -582,26 +650,28 @@ h1 {
 
   .register-input {
     padding: 10px;
-    background-color: white;
-    border: none;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    margin: 10px;
     border-bottom: 1px solid gray;
   }
 
   .register-input:focus {
-    background-color: rgb(250, 190, 187);
-    border: none;
+    background-color: whitesmoke;
+    border: 1px solid whitesmoke;
+    outline: none;
     border-bottom: 1px solid black;
   }
 
 
   .register-button {
-    background-color: rgb(241, 94, 26);
+    background-color: violet;
     height: 30px;
     width: 350px;
     margin-top: 20px;
     // padding: 10px;
     font-size: 18px;
-    color: white;
+    color: black;
     cursor: pointer;
   }
 
@@ -609,9 +679,10 @@ h1 {
     background-color: #7e530d;
     height: 30px;
     width: 350px;
+    background-color: black;
     margin-top: 20px;
     font-size: 18px;
-    color: white;
+    color: violet;
     cursor: pointer;
   }
 
