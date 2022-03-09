@@ -1,22 +1,23 @@
 import React from 'react'
 import '../index.scss'
 import profile from '../images/people.svg'
-import { Link } from 'react-router-dom'
+import logo from '../images/home-logo.jpg'
+import { Link, Navigate } from 'react-router-dom'
 
 export default function Header() {
   return (
     <div className='header-div'>
       <div className="left">
-        <i className="header-Icons fa-brands fa-facebook"></i>
-        <i className="header-Icons fa-brands fa-instagram"></i>
-        <i className="header-Icons fa-brands fa-twitter"></i>
+      <Link className="link" to="/">
+      <img src={logo} className="header-logo"/> 
+      </Link>Blog
       </div>
       <div className="center">
         <ul className="headerList">
         <li className="headerListItem"><Link className='link' to="/" >HOME</Link></li>
         <li className="headerListItem"><Link className='link' to="/about/">ABOUT</Link> </li>
         <li className="headerListItem">CONTACT</li>
-        <li className="headerListItem"><Link className='link' to="/write/">CREATE</Link></li>
+        <li className="headerListItem"><Link className='link' to="/write/">WRITE</Link></li>
         {/* <li className="headerListItem">LOGOUT</li> show only when user is logged in */}
         </ul>
       </div>
@@ -27,8 +28,6 @@ export default function Header() {
         <li className="headerListItem"><Link className='link' to="/login/" >LOGIN</Link></li>
         <li className="headerListItem"><Link className='link' to="/register/">REGISTER</Link></li>
         </ul>
-
-        <i className="header-Search fa-solid fa-magnifying-glass"></i>
       </div>
     </div>
   )
