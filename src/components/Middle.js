@@ -9,8 +9,7 @@ export default function Middle() {
             <span className="middleTitleSm">teqie.io</span>
             <span className="middleTitleLg">TEQIE.</span>
         </div>
-        <img src={image} 
-            className="middle-image" />
+        <img src={image} className="middle-image" />
     </div>
   )
 }

@@ -1,5 +1,4 @@
 import React from 'react'
-import Sidebar from '../../components/Sidebar'
 import '../../index.scss'
 import profile from '../../images/admin.png'
 
@@ -28,8 +27,7 @@ export default function Settings() {
                 <input type="password" placeholder='********' />
                 <button className='settings-submit'>Update</button>
             </form>
-        </div>
-        <Sidebar />    
+        </div>  
     </div>
   )
 }

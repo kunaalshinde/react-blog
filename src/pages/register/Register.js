@@ -1,7 +1,6 @@
 import React from 'react'
 import '../../index.scss'
 import { Link } from 'react-router-dom'
-import User from '../../components/User'
 import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 
 export default class Register extends React.Component {
@@ -21,6 +20,7 @@ export default class Register extends React.Component {
     this.handleRegister = this.handleRegister.bind(this);
   }
 
+  
   handleRegister(event) {
     // Below function prevents page from getting refreshed after submit
     event.preventDefault();

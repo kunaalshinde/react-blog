@@ -12,6 +12,7 @@ import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 export default class App extends React.Component {
 
     render() {
+      
       return (
         <BrowserRouter>
             <Header />
@@ -21,7 +22,7 @@ export default class App extends React.Component {
                 element={<Home />}
             />
               <Route 
-                path="register/" 
+                path="/register/" 
                 // element={this.user.isLogged ? <Home /> : <Register />}
                 element={<Register />}
               />
