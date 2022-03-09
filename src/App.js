@@ -26,21 +26,21 @@ export default class App extends React.Component {
                 element={<Register />}
               />
               <Route 
-                path="login/" 
+                path="/login/" 
                 // element={this.user.isLogged ? <Home /> : <Login />}
                 element={<Login />}
               />
               <Route 
-                path="settings/" 
+                path="/settings/" 
                 // element={this.user.isLogged ? <Settings /> : <Login />}
                 element={<Settings />}
               />
               <Route 
-                path="post/:postId" 
+                path="/blog/:postId" 
                 element={<Single />}
               />
               <Route
-                path="write/" 
+                path="/write/" 
                 // element={this.user.isLogged ? <Write /> : <Login />}
                 element={<Write />}
               />

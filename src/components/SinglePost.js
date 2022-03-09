@@ -3,7 +3,7 @@ import back from '../images/backgro.jpeg'
 
 export default function SinglePost() {
   return (
-    <div className='singlepost'>
+    <div className="singlepost">
         <div className="singlepost-wrapper">
             <img src={back} className="singlepost-image" alt="" />
             <h1 className="singlepost-title">

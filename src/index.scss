@@ -9,7 +9,7 @@ body {
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  monospace;
 }
 h1 {
   font-family: 'karla', sans-serif;
@@ -38,7 +38,7 @@ h1 {
   z-index: 999;
   margin: 0;
   padding: 0;
-
+  
   .left, .right {
     display: flex;
     align-items: center;
@@ -64,7 +64,7 @@ h1 {
     object-fit: cover;
     cursor: pointer;
   }
-
+  
   .headerList {
     display: flex;
     justify-content: center;
@@ -77,15 +77,15 @@ h1 {
         font-weight: 300;
         cursor: pointer;
       }
-  }
-
-  .header-Search {
+    }
+    
+    .header-Search {
     cursor: pointer;
     font-size: 18px;
     color: #666;
     margin-left: 15px;
   }
-
+  
 }
 
 .middle {

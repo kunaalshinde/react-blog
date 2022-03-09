@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import '../index.scss'
 import Blog from './Blog';
 
@@ -77,15 +78,19 @@ export default class Blogs extends React.Component {
   {
     
     return (
-      <div className='blogs'>
-        { this.state.blogPosts.map((post, index) => (
-          <Blog 
-            key={index} 
+      <Link 
+        className='link' 
+        to="/blog/1" >
+        <div className='blogs'>
+          { this.state.blogPosts.map((post, index) => (
+            <Blog 
+              key={index} 
             index={index} 
             post={post}
-          />
-        )) } 
-      </div>
+            />
+            )) } 
+        </div>
+      </Link>
     );
   }
 }

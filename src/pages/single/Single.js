@@ -3,11 +3,15 @@ import '../../index.scss'
 import Sidebar from '../../components/Sidebar'
 import SinglePost from '../../components/SinglePost'
 
-export default function Single() {
-  return (
-    <div className='single'>
-        <SinglePost />
-        <Sidebar />
-    </div>
-  )
+export default class Single extends React.Component {
+  
+  render()
+  {
+    return (
+      <div className="single">
+          <SinglePost />
+          {/* <Sidebar /> */}
+      </div>
+    )
+  }
 }
