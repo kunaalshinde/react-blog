@@ -1,9 +1,18 @@
 import React from 'react'
 import '../../index.scss'
-import { Link } from 'react-router-dom'
+import store from '../../store/store';
+import { Link, Navigate } from 'react-router-dom'
+import { register } from '../../store/actions';
 import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
+import { connect } from 'react-redux';
 
-export default class Register extends React.Component {
+const mapStateToProps = state => {
+  return {
+    isRegistered: state.login.isRegistered
+  }
+}
+
+class Register extends React.Component {
 
   constructor(props)
   { 
@@ -13,7 +22,8 @@ export default class Register extends React.Component {
       email: "",
       username: "",
       password: "",
-      isRegistered:false,
+      isRegistered: this.props.isRegistered,
+      gotohome: false
     }
 
     this.handleChange = this.handleChange.bind(this);
@@ -22,13 +32,13 @@ export default class Register extends React.Component {
 
   
   handleRegister(event) {
-    // Below function prevents page from getting refreshed after submit
     event.preventDefault();
+    this.props.register(this.state.isRegistered)
     this.setState(() => {
       return {
-        // this feature is inrtoduced in ES6 where we can give value to  objects's props using []
         [event.target.name]: event.target.value,
-        [event.target.isRegistered]: true,
+        isRegistered: true,
+        gotoLogin: true
       }
     })
   }
@@ -46,6 +56,10 @@ export default class Register extends React.Component {
 
   render()
   {
+    if(this.state.gotoLogin)
+    {
+      return ( <Navigate to='/login' /> )
+    }
     return (
       <div className="register">
         <div className="inner-register">
@@ -88,10 +102,9 @@ export default class Register extends React.Component {
               
               <button 
                 type='submit'
-                className="register-button" 
-                onClick={this.handleChange}
+                className="register-button"
                 disabled={this.username}
-                >
+              >
                 Sign Up
               </button>
           </form>
@@ -105,3 +118,5 @@ export default class Register extends React.Component {
   }
 }
 
+
+export default connect(mapStateToProps, { register })(Register)

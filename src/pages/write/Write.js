@@ -1,6 +1,7 @@
 import React from 'react'
 import '../../index.scss'
 import background from '../../images/snow-forrest.jpg'
+import { Navigate } from 'react-router-dom';
 
 export default class Write extends React.Component {
     constructor(props) {
@@ -8,11 +9,14 @@ export default class Write extends React.Component {
         this.state = {
             title: "",
             body: "",
+            isDrafted: false,
             isPublished: false,
+            gotoHome: false
         }
         this.handleTitle = this.handleTitle.bind(this);
         this.handleBody = this.handleBody.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handlePublish = this.handlePublish.bind(this);
+        this.handleDraft = this.handleDraft.bind(this);
     }
 
     handleTitle(event) {
@@ -23,18 +27,33 @@ export default class Write extends React.Component {
         this.setState({body: event.target.value});
     }
 
-    handleSubmit(event) {
+    handlePublish(event) {
         event.preventDefault();
         this.setState({
-            [event.target.name]: event.target.value
+            [event.target.name]: event.target.value,
+            isPublished: true,
+            gotoHome: true
+        });
+    }
+
+    handleDraft(event) {
+        event.preventDefault();
+        this.setState({
+            [event.target.name]: event.target.value,
+            isDrafted: true,
+            gotoHome: true
         });
     }
 
     render()
     {
+        if(this.state.gotoHome)
+        {
+            return ( <Navigate to='/' /> );
+        }
         return (
             <div className='write'>
-            <form  className='write-form' onSubmit={this.handleSubmit}>
+            <form  className='write-form'>
                 <img src={background} className='write-image' />
                 <div className="writeform-group">
                     <input 
@@ -54,11 +73,17 @@ export default class Write extends React.Component {
                         onChange={this.handleBody}
                     ></textarea>
                 </div>
-                    <button 
-                        type='submit' 
-                        className="write-submit"
+                    <button
+                        className="write-publish"
+                        onClick={this.handlePublish}
                     >
                         Publish
+                    </button>
+                    <button
+                        className='write-draft'
+                        onClick={this.handleDraft}
+                    >
+                        Draft
                     </button>
             </form>
         </div>

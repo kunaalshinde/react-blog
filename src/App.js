@@ -8,8 +8,14 @@ import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import { connect } from "react-redux";
 
-export default class App extends React.Component {
+const mapStateToProps = state => {
+  return {
+    isLogged: state.login.isLogged
+  }
+}
+class App extends React.Component {
 
     render() {
       
@@ -23,18 +29,18 @@ export default class App extends React.Component {
             />
               <Route 
                 path="/register/" 
-                // element={this.user.isLogged ? <Home /> : <Register />}
+                // element={this.props.isLogged ? <Home /> : <Register />}
                 element={<Register />}
               />
               <Route 
                 path="/login/" 
-                // element={this.user.isLogged ? <Home /> : <Login />}
+                // element={this.props.isLogged ? <Home /> : <Login />}
                 element={<Login />}
               />
               <Route 
                 path="/settings/" 
-                // element={this.user.isLogged ? <Settings /> : <Login />}
-                element={<Settings />}
+                element={this.props.isLogged ? <Settings /> : <Login />}
+                // element={<Settings />}
               />
               <Route 
                 path="/blog/:postId" 
@@ -42,11 +48,13 @@ export default class App extends React.Component {
               />
               <Route
                 path="/write/" 
-                // element={this.user.isLogged ? <Write /> : <Login />}
-                element={<Write />}
+                element={this.props.isLogged ? <Write /> : <Login />}
+                // element={<Write />}
               />
             </Routes>
         </BrowserRouter>
       );
     }
   }
+
+  export default connect(mapStateToProps, null)(App)
