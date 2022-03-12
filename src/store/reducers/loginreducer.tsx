@@ -1,11 +1,12 @@
 import { Login, Logout, Register } from "../actionTypes";
+import { LoginType } from "../../types.d";
 
-const initialState = {
+const initialState: LoginType = {
     isLogged: false,
     isRegistered: false,
 }
 
-export default function loginReducer(state = initialState, action)  {
+export default function loginReducer(state = initialState, action: { type: string})  {
     switch(action.type) {
         case Login : return {
                             ...state,

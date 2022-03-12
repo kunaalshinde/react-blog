@@ -9,16 +9,17 @@ import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
 import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
 import { connect } from "react-redux";
+import { LoginType } from "./types.d";
+import store from "./store/store";
 
-const mapStateToProps = state => {
+const mapStateToProps = (state: any): any => {
   return {
     isLogged: state.login.isLogged
   }
 }
-class App extends React.Component {
 
+class App extends React.Component<{isLogged?: boolean} ,{}> {
     render() {
-      
       return (
         <BrowserRouter>
             <Header />

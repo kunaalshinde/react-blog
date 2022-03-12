@@ -1,6 +1,6 @@
 import React from 'react'
 import '../index.scss'
-import profile from '../images/people.svg'
+import  profile from '../images/people.svg'
 import logo from '../images/home-logo.jpg'
 import { Link, Navigate } from 'react-router-dom'
 

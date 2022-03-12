@@ -1,17 +1,17 @@
-import { Login, Logout, Register } from "./actionTypes";
+import * as actionTypes from  './actionTypes'
 
 export const login = () => {
     console.log('loggin')
-    return (dispatch => dispatch({
+    return ((dispatch: any) => dispatch({
     type: 'LOGIN', 
 }))}
 
 export const logout = () => {
-    return (dispatch => dispatch({
+    return ((dispatch: any) => dispatch({
     type: 'LOGOUT',
 }))}
 
 export const register = () => {
-    return (dispatch => dispatch({
+    return ((dispatch: any) => dispatch({
     type: 'REGISTER',
 }))}
