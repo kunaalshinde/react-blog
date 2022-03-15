@@ -1,4 +1,3 @@
-import * as actionTypes from  './actionTypes'
 
 export const login = () => {
     console.log('loggin')

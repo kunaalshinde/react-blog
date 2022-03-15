@@ -6,7 +6,7 @@ const initialState: LoginType = {
     isRegistered: false,
 }
 
-export default function loginReducer(state = initialState, action: { type: string})  {
+export default function loginReducer(state = initialState, action: { type: string}): LoginType  {
     switch(action.type) {
         case Login : return {
                             ...state,
