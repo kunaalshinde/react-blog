@@ -14,3 +14,4 @@ export const register = () => {
     return ((dispatch: any) => dispatch({
     type: 'REGISTER',
 }))}
+

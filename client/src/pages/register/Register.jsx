@@ -5,6 +5,7 @@ import { Link, Navigate } from 'react-router-dom'
 import { register } from '../../store/actions';
 import { toHaveDisplayValue } from '@testing-library/jest-dom/dist/matchers';
 import { connect } from 'react-redux';
+import { signup } from '../../api/user';
 
 const mapStateToProps = state => {
   return {
@@ -30,9 +31,15 @@ class Register extends React.Component {
     this.handleRegister = this.handleRegister.bind(this);
   }
 
-  
-  handleRegister(event) {
+  // In this if email or username is already present in db then it logs error with status 500 else redirects to login page
+  handleRegister = async (event) => {
     event.preventDefault();
+    const res = await signup({
+      username: this.state.username,
+      email: this.state.email,
+      password: this.state.password,
+    });
+    console.log(res);
     this.props.register(this.state.isRegistered)
     this.setState(() => {
       return {

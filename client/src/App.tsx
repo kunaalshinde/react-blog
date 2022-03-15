@@ -1,5 +1,4 @@
 import React from "react";
-import ReactDOM from "react";
 import Header from "./components/Header";
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
@@ -7,7 +6,7 @@ import Register from "./pages/register/Register";
 import Settings from "./pages/settings/Settings";
 import Single from "./pages/single/Single";
 import Write from "./pages/write/Write";
-import {BrowserRouter, Routes, Route, Link} from 'react-router-dom'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import { connect } from "react-redux";
 
 const mapStateToProps = (state: any): any => {
@@ -16,7 +15,7 @@ const mapStateToProps = (state: any): any => {
   }
 }
 
-class App extends React.Component<{isLogged?: boolean} ,{}> {
+class App extends React.Component<{isLogged?: boolean}, {}> {
     render() {
       return (
         <BrowserRouter>
@@ -42,7 +41,7 @@ class App extends React.Component<{isLogged?: boolean} ,{}> {
                 // element={<Settings />}
               />
               <Route 
-                path="/blog/:postId" 
+                path="/blogs/:id" 
                 element={<Single />}
               />
               <Route
@@ -54,6 +53,6 @@ class App extends React.Component<{isLogged?: boolean} ,{}> {
         </BrowserRouter>
       );
     }
-  }
+}
 
   export default connect(mapStateToProps, null)(App)

@@ -1,6 +1,6 @@
-import React from 'react'
-import '../index.scss'
-import image from '../images/main.jpg'
+import React from 'react';
+import '../index.scss';
+import image from '../images/main.jpg';
 
 export default function Middle() {
   return (

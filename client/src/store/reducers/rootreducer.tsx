@@ -5,7 +5,7 @@ import loginReducer from './loginreducer';
 
  const rootreducer = combineReducers({
 login: loginReducer,
-blogs: blogReducer
+posts: blogReducer
 });
 
 export default rootreducer

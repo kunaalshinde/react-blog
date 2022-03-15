@@ -1,4 +1,5 @@
 import express, { request, Request, Response } from 'express';
+import mongoose from 'mongoose';
 import { Blog } from '../models/Blog';
 
 const router = express.Router();
@@ -19,6 +20,8 @@ router.post("/", async (req: Request, res: Response) => {
 // Update Blog
 router.put("/:id", async (req: Request, res: Response) => {
     try {
+        if(!mongoose.Types.ObjectId.isValid(req.params.id)) 
+            return false;
         const blog = await Blog.findById(req.params.id);
         if(blog?.username === req.body.username) {
             try {
@@ -44,6 +47,8 @@ router.put("/:id", async (req: Request, res: Response) => {
 // Delete Blog
 router.delete("/:id", async (req: Request, res: Response) => {
     try {
+        if(!mongoose.Types.ObjectId.isValid(req.params.id)) 
+            return false;
         const blog = await Blog.findById(req.params.id);
         if(blog?.username === req.body.username) {
             try {
@@ -64,9 +69,12 @@ router.delete("/:id", async (req: Request, res: Response) => {
 });
 
 
-// Get Blog
+// Get Blog by id
 router.get("/:id", async (req: Request, res:Response) => {
     try {
+        // If invalid id passed to mongoose it gives error so first check the valid type
+        if(!mongoose.Types.ObjectId.isValid(req.params.id)) 
+            return false;
         const blog = await Blog.findById(req.params.id);
         res.status(200).json(blog);
     }
@@ -81,7 +89,8 @@ router.get("/", async (req: Request, res: Response) => {
     const username = req.query.user;
     try {
         let blogs;
-        blogs = await Blog.find(username? {username} : {});
+        // this checks if for particular author search is made 
+        blogs = await Blog.find(username ? {username} : {});
         res.status(200).json(blogs);
     }
     catch(err) {
