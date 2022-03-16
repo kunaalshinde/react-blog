@@ -1,23 +1,27 @@
 import React from 'react'
 import '../../index.scss'
 import { Link, Navigate } from 'react-router-dom'
-import store from '../../store/store'
 import { connect } from 'react-redux'
-import { login } from '../../store/actions'
+import { loginstart, loginfailure, loginsuccess } from '../../store/actions'
 import { isDisabled } from '@testing-library/user-event/dist/utils'
+import { login } from '../../api/user'
 
 const mapStateToProps = state => {
     return {
-      isLogged: state.login.isLogged
+      isLogged: state.login.isLogged,
+      user: state.login.user,
+      isFetching: state.login.isFetching
     }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//   return {
-//       getLoggedin: () => dispatch(login()),
-//       // logout: () => dispatch(logout())
-//   }
-// }
+const mapDispatchToProps = (dispatch) => {
+  return {
+      Loginstart: () => dispatch({type: 'LOGIN_START'}),
+      Loginsuccess: (data) => dispatch({type: 'LOGIN_SUCCESS', payload: data}),
+      Loginfailure: () => dispatch({type: 'LOGIN_FAILURE'})
+      // logout: () => dispatch(logout())
+  }
+}
 class Login extends React.Component {
   
   constructor(props) {
@@ -26,28 +30,38 @@ class Login extends React.Component {
       username: "",
       password: "",
       isLogged: this.props.isLogged,
-      gotoHome: false
+      success: false
     }
     this.handleChange = this.handleChange.bind(this);
     this.handleLogin = this.handleLogin.bind(this); 
   }
   
 
-  handleLogin(event) {
+  handleLogin = async (event) => {
     // Below function prevents page from getting refreshed after submit
     event.preventDefault();
     // This is the main call to action 
-    this.props.login(this.state.isLogged);
+    // this.props.login(this.state.isLogged);
+    this.props.Loginstart();
+    try {
+      const res = await login({
+        username: this.state.username,
+        password: this.state.password,
+      });
+      this.props.Loginsuccess(res.data);
+    }
+    catch(err) {
+      this.props.Loginfailure();
+    }
     this.setState(() => {
       return {
         // this feature is inrtoduced in ES6 where we can give value to  objects's props using []
         [event.target.name]: event.target.value,
         isLogged: true,
-        gotoHome: true
+        success: true
       }
     })
   }
-
 
   // On change in form
   handleChange(event) {
@@ -57,10 +71,11 @@ class Login extends React.Component {
       }
     })
   }
-
-
+  
+  
   render() {
-    if(this.state.gotoHome)
+    // console.log(this.props.isFetching);
+    if(this.state.success)
     {
       return ( <Navigate to='/' />)
     }
@@ -71,7 +86,7 @@ class Login extends React.Component {
           <form className="login-form" onSubmit={this.handleLogin} >
               <input 
                 className="login-input" 
-                type="email"
+                type="text"
                 name="username"
                 placeholder='Username'
                 value={this.state.username}
@@ -100,4 +115,4 @@ class Login extends React.Component {
 }
 
 
-export default connect(mapStateToProps, { login })(Login)
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

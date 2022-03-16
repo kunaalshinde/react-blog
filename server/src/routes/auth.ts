@@ -18,9 +18,10 @@ router.post("/register", async (req: Request, res: Response) => {
         const email = req.body.email;
         // findUser = await User.findOne({email});
         // if(findUser)
-        //     res.status(404).json('Email alreadt registered.')
+        //     res.status(404).json('Email already registered.')
         const password = req.body.password;
-        const newUser =  User.build({username, email, password});
+        const fullname = req.body.password;
+        const newUser =  User.build({username, fullname, email, password});
         const user = await newUser.save();
         res.status(200).json(user);
         // res.status(200).json('Registered Successfully!');
@@ -30,6 +31,8 @@ router.post("/register", async (req: Request, res: Response) => {
     }
 });
 
+
+// Login
 router.post("/login", async (req: Request, res: Response) => {
     try {
         const user = await User.findOne({username: req.body.username});

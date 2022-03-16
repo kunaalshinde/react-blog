@@ -1,16 +1,35 @@
-import { Login, Logout, Register } from "../actionTypes";
-import { LoginType } from "../../types.d";
+import { LoginStart, LoginFailure, LoginSuccess, Logout, Register } from "../actionTypes";
+import { UserType } from "../../types.d";
 
-const initialState: LoginType = {
+const initialState: UserType = {
+    user: {
+        email: "",
+        fullname: "",
+        username: "",
+    },
     isLogged: false,
     isRegistered: false,
+    isFetching: false,
 }
 
-export default function loginReducer(state = initialState, action: { type: string}): LoginType  {
+export default function loginReducer(state = initialState, action: { type: string, payload?: any}): UserType  {
     switch(action.type) {
-        case Login : return {
+        case LoginStart: return {
                             ...state,
+                            isFetching: true
+                        }
+
+        case LoginSuccess: return {
+                            ...state,
+                            user: action.payload,
+                            isFetching: false,
                             isLogged: true
+                        }
+
+        case LoginFailure: return {
+                            ...state,
+                            isFetching: false,
+                            isLogged: true,
                         }
         case Logout : return {
                             ...state,

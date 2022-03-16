@@ -1,6 +1,12 @@
-export type LoginType = {
+export type UserType = {
+    user: {
+        email: string,
+        fullname: string,
+        username: string,
+    }
     isLogged?: boolean,
-    isRegistered?: boolean
+    isRegistered?: boolean,
+    isFetching?: boolean
 }
 
 export type BlogType = {

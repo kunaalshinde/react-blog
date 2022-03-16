@@ -39,7 +39,8 @@ export default function SinglePost() {
                 <div className="singlepost-info">
                     <span className="singlepost-author">
                         <Link to={`/?user=${post.username}`} className="link">
-                        <b>{post.username}</b>
+                        <b>{post.username}</b> 
+                         {/* Change Above */}
                         </Link>
                     </span>
                     <span className="singlepost-date">

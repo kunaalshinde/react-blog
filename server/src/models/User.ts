@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt';
 
 interface IUser {
     username: string,
+    fullname: string,
     email: string,
     password: string
 }
@@ -13,6 +14,7 @@ interface UserModelInterace extends mongoose.Model<UserDoc> {
 
 interface UserDoc extends mongoose.Document {
     username: string,
+    fullname: string,
     email: string,
     password: string,
 }
@@ -22,6 +24,10 @@ const UserSchema = new mongoose.Schema({
             type: String,
             required: true,
             unique: true,
+        },
+        fullname: {
+            type: String,
+            required: true,
         },
         email: {
             type: String,

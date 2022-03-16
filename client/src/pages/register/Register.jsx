@@ -36,6 +36,7 @@ class Register extends React.Component {
     event.preventDefault();
     const res = await signup({
       username: this.state.username,
+      fullname: this.state.fullname,
       email: this.state.email,
       password: this.state.password,
     });

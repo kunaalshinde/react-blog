@@ -1,9 +1,17 @@
 import axios from "axios";
 
-interface IUser {
+interface RUser {
     username: string,
+    fullname: string,
     email: string,
     password: string
 }
 
-export const signup = (user: IUser) => axios.post("/auth/register", user);
+interface LUser {
+    username: string,
+    password: string
+}
+
+export const signup = (user: RUser) => axios.post("/auth/register", user);
+
+export const login = (user: LUser) => axios. post("/auth/login", user);

@@ -1,4 +1,6 @@
-export const Login = "LOGIN"
+export const LoginStart = "LOGIN_START"
+export const LoginSuccess = "LOGIN_SUCCESS"
+export const LoginFailure = "LOGIN_FAILURE"
 export const Logout = "LOGOUT"
 export const Register = "REGISTER"
 export const Publish = "PUBLISH"
