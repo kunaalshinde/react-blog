@@ -310,6 +310,7 @@ h1 {
 
   .write-form {
     position: relative;
+    justify-content: center;
   }
 
   .write-input {
@@ -326,7 +327,10 @@ h1 {
 
   .write-input-text {
     font-size: 20px;
+    height: 10vw;
+    width: 70vw;
     border: none;
+    padding: 20px;
     font-family: 'Verala Round',serif;
   }
 
@@ -336,8 +340,9 @@ h1 {
 
   .write-publish {
     position: absolute;
+    height: 3vw;
     // top: 20px;
-    bottom: 10px;
+    bottom: 110px;
     right: 50px;
     color: white;
     background-color: teal;
@@ -350,12 +355,14 @@ h1 {
 
   .write-draft {
     position: absolute;
+    height: 3vw;
+    line-height: 0;
     // top: 20px;
-    bottom: 60px;
+    bottom: 170px;
     right: 50px;
     color: white;
     background-color: teal;
-    padding: 10px;
+    padding: 16px;
     border: none;
     border-radius: 10px;
     cursor: pointer;

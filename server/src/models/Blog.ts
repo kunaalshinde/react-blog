@@ -3,8 +3,8 @@ import mongoose from "mongoose";
 interface IBlog {
     title: string,
     body: string,
-    published: string,
     username: string,
+    published: string,
     imageURL: string,
 }
 
@@ -15,8 +15,8 @@ interface BlogModelInterace extends mongoose.Model<BlogDoc> {
 interface BlogDoc extends mongoose.Document {
     title: string,
     body: string,
-    published: string,
     username: string,
+    published: string,
     imageURL: string,
 }
 

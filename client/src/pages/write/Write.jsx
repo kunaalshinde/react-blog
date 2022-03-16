@@ -2,6 +2,8 @@ import React from 'react'
 import '../../index.scss'
 import background from '../../images/snow-forrest.jpg'
 import { Navigate } from 'react-router-dom';
+import axios from 'axios';
+import store from '../../store/store';
 
 export default class Write extends React.Component {
     constructor(props) {
@@ -27,8 +29,22 @@ export default class Write extends React.Component {
         this.setState({body: event.target.value});
     }
 
-    handlePublish(event) {
+    handlePublish = async (event) => {
         event.preventDefault();
+        const newBlog = {
+            title: this.state.title,
+            body: this.state.body,
+            username: store.getState().login.user.username,
+            published: "true",
+            imageURL: "",
+        }
+        try {
+            const res = await axios.post("/blogs", newBlog);
+            console.log(res);
+        }
+        catch(err) {
+            console.log(err);
+        }
         this.setState({
             [event.target.name]: event.target.value,
             isPublished: true,
@@ -36,8 +52,22 @@ export default class Write extends React.Component {
         });
     }
 
-    handleDraft(event) {
+    handleDraft = async (event) => {
         event.preventDefault();
+        const newBlog = {
+            title: this.state.title,
+            body: this.state.body,
+            username: store.getState().login.user.username,
+            published: "false",
+            imageURL: "",
+        }
+        try {
+            const res = await axios.post("/blogs", newBlog);
+            console.log(res);
+        }
+        catch(err) {
+            console.log(err);
+        }
         this.setState({
             [event.target.name]: event.target.value,
             isDrafted: true,
