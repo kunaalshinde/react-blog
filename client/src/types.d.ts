@@ -3,6 +3,7 @@ export type UserType = {
         email: string,
         fullname: string,
         username: string,
+        profilePic: string,
     }
     isLogged?: boolean,
     isRegistered?: boolean,

@@ -9,6 +9,7 @@ const initialState: UserType = {
         email: "",
         fullname: "",
         username: "",
+        profilePic: "",
     })
     ,
     isLogged: false,
@@ -35,12 +36,13 @@ export default function loginReducer(state = initialState, action: { type: strin
                             isFetching: false,
                             isLogged: true,
                         }
-        case Logout : return {
+        case Logout :  return {
                             ...state,
                             user: {
                                 username: "",
                                 fullname: "",
                                 email: "",
+                                profilePic: "",
                             },
                             isFetching: false,
                             isLogged: false

@@ -21,7 +21,7 @@ router.post("/register", async (req: Request, res: Response) => {
         //     res.status(404).json('Email already registered.')
         const password = req.body.password;
         const fullname = req.body.fullname;
-        const newUser =  User.build({username, fullname, email, password});
+        const newUser =  User.build({username, fullname, email, password, profilePic: ""});
         const user = await newUser.save();
         res.status(200).json(user);
         // res.status(200).json('Registered Successfully!');

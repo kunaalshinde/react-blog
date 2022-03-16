@@ -1,6 +1,6 @@
 import React from 'react'
 import '../../index.scss'
-import profile from '../../images/admin.png'
+import profile from '../../images/admin2.png'
 
 export default function Settings() {
   return (

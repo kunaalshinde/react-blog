@@ -1,7 +1,7 @@
 import { UserType } from "../types"
 
 export const loginstart = (userCredentials : UserType) => {
-    console.log('loggin')
+    // console.log('loggin')
     return ((dispatch: any) => dispatch({
     type: 'LOGIN_START', 
 }))}
@@ -18,7 +18,7 @@ export const loginfailure = () => {
 }))}
 
 export const logout = () => {
-    console.log('logout')
+    // console.log('logout')
     return ((dispatch: any) => dispatch({
     type: 'LOGOUT',
 }))}

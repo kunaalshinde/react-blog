@@ -5,7 +5,8 @@ interface IUser {
     username: string,
     fullname: string,
     email: string,
-    password: string
+    password: string,
+    profilePic: string
 }
 
 interface UserModelInterace extends mongoose.Model<UserDoc> {
@@ -17,6 +18,7 @@ interface UserDoc extends mongoose.Document {
     fullname: string,
     email: string,
     password: string,
+    profilePic: string,
 }
 
 const UserSchema = new mongoose.Schema({
