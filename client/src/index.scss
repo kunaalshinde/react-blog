@@ -547,6 +547,11 @@ h1 {
     cursor: pointer;
   }
 
+  .login-button:disabled {
+    cursor: not-allowed;
+    background: opacify($color: violet, $amount: 1);
+  }
+
   .login-register-button {
     background-color: #7e530d;
     height: 30px;

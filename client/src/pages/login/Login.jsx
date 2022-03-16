@@ -14,14 +14,23 @@ const mapStateToProps = state => {
     }
 }
 
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//       Loginstart: () => dispatch({type: 'LOGIN_START'}),
+//       Loginsuccess: (data) => dispatch({type: 'LOGIN_SUCCESS', payload: data}),
+//       Loginfailure: () => dispatch({type: 'LOGIN_FAILURE'})
+//       // logout: () => dispatch(logout())
+//   }
+// }
+
 const mapDispatchToProps = (dispatch) => {
   return {
-      Loginstart: () => dispatch({type: 'LOGIN_START'}),
-      Loginsuccess: (data) => dispatch({type: 'LOGIN_SUCCESS', payload: data}),
-      Loginfailure: () => dispatch({type: 'LOGIN_FAILURE'})
-      // logout: () => dispatch(logout())
+    Loginstart: () => dispatch(loginstart()),
+    Loginsuccess: (data) => dispatch(loginsuccess(data)),
+    Loginfailure: () => dispatch(loginfailure())
   }
 }
+
 class Login extends React.Component {
   
   constructor(props) {
@@ -103,6 +112,7 @@ class Login extends React.Component {
               <button 
                 className="login-button" 
                 type='submit'
+                disabled={this.props.isFetching}
               >Log In</button>
           </form>
         </div>

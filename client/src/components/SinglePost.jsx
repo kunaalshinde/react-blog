@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import {Link, useLocation } from 'react-router-dom'
 import back from '../images/backgro.jpeg'
 import { fetchBlogbyId } from '../api/posts';
+import { fetchname } from '../api/user';
 
 export default function SinglePost() {
 

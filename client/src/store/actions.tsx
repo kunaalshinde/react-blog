@@ -6,16 +6,19 @@ export const loginstart = (userCredentials : UserType) => {
     type: 'LOGIN_START', 
 }))}
 
-export const loginsuccess = (user: UserType) => ({
-    type: 'LOGIN_SUCCESS',
+export const loginsuccess = (user: UserType) => {
+    return ((dispatch: any) => dispatch({
+        type: 'LOGIN_SUCCESS',
     payload: user,
-})
+}))}
 
-export const loginfailure = () => ({
-    type: 'LOGIN_FAILURE'
-})
+export const loginfailure = () => {
+    return ((dispatch: any) => dispatch({
+        type: 'LOGIN_FAILURE'
+}))}
 
 export const logout = () => {
+    console.log('logout')
     return ((dispatch: any) => dispatch({
     type: 'LOGOUT',
 }))}

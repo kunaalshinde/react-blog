@@ -55,4 +55,4 @@ class App extends React.Component<{isLogged?: boolean}, {}> {
     }
 }
 
-  export default connect(mapStateToProps, null)(App)
+export default connect(mapStateToProps, null)(App)

@@ -21,7 +21,7 @@ router.post("/", async (req: Request, res: Response) => {
 router.put("/:id", async (req: Request, res: Response) => {
     try {
         if(!mongoose.Types.ObjectId.isValid(req.params.id)) 
-            return false;
+            res.status(422).json('Wrong id');
         const blog = await Blog.findById(req.params.id);
         if(blog?.username === req.body.username) {
             try {
@@ -48,7 +48,7 @@ router.put("/:id", async (req: Request, res: Response) => {
 router.delete("/:id", async (req: Request, res: Response) => {
     try {
         if(!mongoose.Types.ObjectId.isValid(req.params.id)) 
-            return false;
+            res.status(422).json('Wrong id');
         const blog = await Blog.findById(req.params.id);
         if(blog?.username === req.body.username) {
             try {
@@ -74,7 +74,7 @@ router.get("/:id", async (req: Request, res:Response) => {
     try {
         // If invalid id passed to mongoose it gives error so first check the valid type
         if(!mongoose.Types.ObjectId.isValid(req.params.id)) 
-            return false;
+            res.status(422).json('Wrong id');
         const blog = await Blog.findById(req.params.id);
         res.status(200).json(blog);
     }

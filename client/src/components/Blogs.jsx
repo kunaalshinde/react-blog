@@ -104,8 +104,7 @@ export default class Blogs extends React.Component {
   // }
 
   render()
-  {
-    
+  { 
     return (
         <div className='blogs'>
           { this.state.blogPosts.map((post, index) => (

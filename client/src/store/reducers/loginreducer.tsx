@@ -1,12 +1,16 @@
 import { LoginStart, LoginFailure, LoginSuccess, Logout, Register } from "../actionTypes";
 import { UserType } from "../../types.d";
 
+const localUser = localStorage.getItem("user")
+
 const initialState: UserType = {
-    user: {
+    user: (localUser !== null) ? JSON.parse(localUser) :
+    ({
         email: "",
         fullname: "",
         username: "",
-    },
+    })
+    ,
     isLogged: false,
     isRegistered: false,
     isFetching: false,
@@ -33,6 +37,12 @@ export default function loginReducer(state = initialState, action: { type: strin
                         }
         case Logout : return {
                             ...state,
+                            user: {
+                                username: "",
+                                fullname: "",
+                                email: "",
+                            },
+                            isFetching: false,
                             isLogged: false
                         }
         case Register: return {

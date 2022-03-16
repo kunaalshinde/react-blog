@@ -20,7 +20,7 @@ router.post("/register", async (req: Request, res: Response) => {
         // if(findUser)
         //     res.status(404).json('Email already registered.')
         const password = req.body.password;
-        const fullname = req.body.password;
+        const fullname = req.body.fullname;
         const newUser =  User.build({username, fullname, email, password});
         const user = await newUser.save();
         res.status(200).json(user);
@@ -36,10 +36,10 @@ router.post("/register", async (req: Request, res: Response) => {
 router.post("/login", async (req: Request, res: Response) => {
     try {
         const user = await User.findOne({username: req.body.username});
-        !user && res.status(200).json('Wrong Credentials!');
+        !user && res.status(400).json('Wrong Credentials!');
 
         const validate = await req.body.password === user?.password;
-        !user && res.status(200).json('Wrong Credentials!');
+        !validate && res.status(400).json('Wrong Credentials!');
 
         res.status(200).json(user);
         // res.status(200).json('Login Successfully');
