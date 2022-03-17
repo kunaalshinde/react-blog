@@ -85,9 +85,7 @@ class Login extends React.Component {
   render() {
     // console.log(this.props.isFetching);
     if(this.state.success)
-    {
       return ( <Navigate to='/' />)
-    }
     return (
       <div className="login"> 
         <div className="inner-login">

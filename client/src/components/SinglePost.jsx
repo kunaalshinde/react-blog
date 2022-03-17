@@ -68,7 +68,8 @@ export default function SinglePost() {
     const handleUpdate = async () => {
         try {
             await updateBlog(post._id, user.username, title, body, published);
-            window.location.reload();
+            // window.location.reload();
+            setUpdateMode(false);
         }
         catch(err)
         {
@@ -92,7 +93,7 @@ export default function SinglePost() {
                                 /> :
                     (
                         <h1 className="singlepost-title">
-                        {post.title}
+                        {title}
                         {post.username === store.getState().login.user?.username &&
                         (<div className="singlepost-edit">
                             <i 
@@ -126,7 +127,7 @@ export default function SinglePost() {
                             onChange={(e) => setBody(e.target.value)}
                         /> ) :
                     (<p className="singlepost-desc">
-                        {post.body}
+                        {body}
                     </p>
                     )}
                     {updateMode && 

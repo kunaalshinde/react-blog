@@ -4,6 +4,7 @@ import background from '../../images/snow-forrest.jpg'
 import { Navigate } from 'react-router-dom';
 import axios from 'axios';
 import store from '../../store/store';
+import { createBlog } from '../../api/posts';
 
 export default class Write extends React.Component {
     constructor(props) {
@@ -39,7 +40,7 @@ export default class Write extends React.Component {
             imageURL: "",
         }
         try {
-            const res = await axios.post("/blogs", newBlog);
+            const res = await createBlog(newBlog);
             console.log(res);
         }
         catch(err) {
@@ -62,7 +63,7 @@ export default class Write extends React.Component {
             imageURL: "",
         }
         try {
-            const res = await axios.post("/blogs", newBlog);
+            const res = await createBlog(newBlog);
             console.log(res);
         }
         catch(err) {
