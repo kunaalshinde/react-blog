@@ -9,7 +9,7 @@ export const loginstart = (userCredentials : UserType) => {
 export const loginsuccess = (user: UserType) => {
     return ((dispatch: any) => dispatch({
         type: 'LOGIN_SUCCESS',
-    payload: user,
+        payload: user,
 }))}
 
 export const loginfailure = () => {

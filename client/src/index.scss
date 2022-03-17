@@ -225,6 +225,8 @@ h1 {
 .singlepost-wrapper {
   padding: 20px;
   padding-right: 0;
+  display: flex;
+  flex-direction: column;
 
   .singlepost-image {
     width: 100%;
@@ -240,6 +242,18 @@ h1 {
     font-family: 'Cinzel Decorative', cursive;
   }
 
+  .singlepost-title-input {
+    margin: 20px;
+    font-size: 40px;
+    font-family: 'Cinzel Decorative', cursive;
+    border: none;
+    border-bottom: 1px solid lightgray;
+  }
+
+  .singlepost-title-input:focus {
+    outline: none;
+  }
+
   .singlepost-edit {
     float: right;
     font-size: 20px;
@@ -248,8 +262,6 @@ h1 {
   .singlepost-icon {
     margin-left: 15px;
     cursor: pointer;
-
-    
   }
 
   .singlepost-icon:first-child {
@@ -279,10 +291,65 @@ h1 {
     line-height: 25px;
   }
 
+  .singlepost-desc-input {
+    border: none;
+    color: #666;
+    font-size: 18px;
+    width: 1310px;
+    line-height: 25px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .singlepost-desc-input:focus {
+    outline: none;
+  }
+
   .singlepost-desc::first-letter {
     margin-left: 20px;
     font-size: 30px;
     font-weight: 600;
+  }
+
+  .singlepost-buttons {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .singlepost-button {
+    border: none;
+    background-color: teal;
+    padding: 5px;
+    margin: 20px; 
+    color: white;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    align-self: flex-end;
+  }
+
+  .singlepost-draft {
+    border: none;
+    background-color: violet;
+    padding: 5px;
+    margin: 20px; 
+    color: black;
+    width: 100px;
+    height: 30px;
+    border-radius: 5px;
+    align-self: flex-start;
+    cursor: pointer;
+  }
+
+  .singlepost-draft:disabled {
+    cursor: not-allowed;
+    background: opacify($color: violet, $amount: 1);
+  }
+
+  .singlepost-draft:disabled {
+    cursor: not-allowed;
+    background: opacify($color: violet, $amount: 1);
   }
 
 }

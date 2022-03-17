@@ -88,9 +88,10 @@ router.get("/:id", async (req: Request, res:Response) => {
 router.get("/", async (req: Request, res: Response) => {
     const username = req.query.user;
     try {
-        let blogs;
-        // this checks if for particular author search is made 
-        blogs = await Blog.find(username ? {username} : {});
+        // this checks if for particular author search is made and if published only then show to home page
+        const blogs = username ? 
+                        await Blog.find({username, published: "true"}) :
+                        await Blog.find({published: "true"});
         res.status(200).json(blogs);
     }
     catch(err) {

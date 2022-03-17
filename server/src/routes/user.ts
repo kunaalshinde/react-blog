@@ -67,15 +67,16 @@ router.get("/:id", async (req: Request, res: Response) => {
 });
 
 // Get Fullname by Username
-// router.get("/:username", async (req: Request, res:Response) => {
-//     try {
-//         const user = await User.find({username: req.params.username});
-//         res.status(500).json(user);
-//     }
-//     catch(err) {
-//         res.status(500).json(err);
-//     }
-// });
+router.get("/", async (req: Request, res:Response) => {
+    const username = req.query.username;
+    try {
+        const user = await User.find({username});
+        res.status(200).json(user);
+    }
+    catch(err) {
+        res.status(500).json(err);
+    }
+});
 
 
 export { router as userRoute }

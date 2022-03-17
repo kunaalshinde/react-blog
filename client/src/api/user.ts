@@ -13,8 +13,8 @@ interface LUser {
 }
 
 //Register
-export const signup = (user: RUser) => axios.post("/auth/register", user);
+export const signup = (user: RUser) => axios.post(`/auth/register`, user);
 //Login
-export const login = (user: LUser) => axios. post("/auth/login", user);
+export const login = (user: LUser) => axios. post(`/auth/login`, user);
 //Fetch Fullname given the username
-export const fetchuser = (uname: any) => axios.get(`/auth/:${uname}`);
+export const fetchuser = (uname: any) => axios.get(`/user?username=${uname}`);
